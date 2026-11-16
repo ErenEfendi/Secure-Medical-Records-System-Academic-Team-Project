@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login - Secure Medical Records</title>
+  <style>
+    body {font-family: Arial; padding:40px; max-width:420px; margin:auto; background:#f9f9f9;}
+    input,button{margin:8px 0;padding:10px;width:100%;font-size:1em;}
+    button{background:#007bff;color:white;border:none;cursor:pointer;}
+    button:hover{background:#0056b3;}
+    pre{background:#eee;padding:10px;white-space:pre-wrap;}
+    .note{font-size:0.9em;color:#444;}
+  </style>
+</head>
+<body>
+  <h1>Login</h1>
+  <input type="text" id="username" placeholder="Username" autocomplete="username">
+  <input type="password" id="password" placeholder="Password" autocomplete="current-password">
+  <input type="text" id="totp" placeholder="TOTP Code (if enabled)" autocomplete="one-time-code">
+  <button id="login-btn">Login</button>
+  <pre id="result"></pre>
+  <p class="note"><a href="/register.html">Need an account? Register</a></p>
+
+  <script src="/static/js/crypto.js"></script>
+  <script src="/static/js/srp_client.js"></script>
+  <script src="/static/js/auth.js"></script>
+  <script src="/static/js/login_logic.js"></script>
+</body>
+</html>

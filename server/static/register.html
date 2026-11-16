@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register - Secure Medical Records</title>
+  <style>
+    body {font-family: Arial; padding: 40px; max-width: 440px; margin: auto; background: #f9f9f9;}
+    input, select, button {margin: 8px 0; padding: 10px; width: 100%; font-size: 1em;}
+    button {background: #28a745; color: white; border: none; cursor: pointer;}
+    button:hover {background: #1e7e34;}
+    .result {margin-top: 16px; padding: 12px; border-radius: 8px;}
+    .success {background: #d4edda; border: 1px solid #c3e6cb; color: #155724;}
+    .error {background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24;}
+    .info {background: #e3f2fd; border: 1px solid #90caf9; color: #0d47a1;}
+    .mono {font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; word-break: break-all;}
+    .small {font-size: 0.9em; color:#333;}
+  </style>
+  <script src="/static/js/qrcode.min.js"></script>
+</head>
+<body>
+  <h1>Register</h1>
+  
+  <input type="text" id="username" placeholder="Username" autocomplete="username">
+  <input type="password" id="password" placeholder="Password" autocomplete="new-password">
+  <p class="small">Minimum 12 characters,<br>include at least one special character (!@#$%^&*()_+-=[]{}|;:,.<>?).</p>
+  
+  <select id="role">
+    <option value="patient">Patient</option>
+    <option value="doctor">Doctor</option>
+  </select>
+
+  <div id="patient-fields">
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob">
+  </div>
+
+  <div id="doctor-fields" style="display: none;">
+    <label for="organization">Medical Organization:</label>
+    <input type="text" id="organization" placeholder="Hospital Name">
+  </div>
+
+  <button id="register-btn">Register</button>
+  <div id="result"></div>
+  <p class="small"><a href="/login.html">Already have an account? Login</a></p>
+
+  <script src="/static/js/crypto.js"></script>
+  <script src="/static/js/srp_client.js"></script> <script src="/static/js/auth.js"></script>
+  <script src="/static/js/register_logic.js"></script>
+</body>
+</html>
